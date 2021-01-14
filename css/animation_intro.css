@@ -1,0 +1,252 @@
+/* Animation du premier mot
+   ========================================================================== */
+
+/**
+ * Mettre le mot au centre de l'écran et ajouter un pseudo-élément.
+ */
+
+ /* Pour que les mots de l'introduction soit invisibles
+ avant d'être animés
+*/
+
+.lesMots {
+	opacity : 0;
+	font-size: .8em;
+	letter-spacing: 1vw;
+}
+
+.lesMots h1 {
+	display: inline-block;
+}
+
+.lesMots span {
+	padding: 0 2vw;
+}
+
+@keyframes descenteMot {
+	0% {
+		transform: translateY(-600px) rotateX(-30deg) scale(0);
+		transform-origin: 50% 100%;
+		opacity: 0;
+	  }
+	  100% {
+		transform: translateY(-45px) rotateX(0) scale(1);
+		transform-origin: 50% 1400px;
+		opacity: 1;
+	  }
+}
+
+
+.descenteMot {
+	animation: descenteMot 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes rebondMot {
+	0% {
+		transform: translateY(-45px);
+		animation-timing-function: ease-in;
+		opacity: 1;
+	}
+	24% {
+	opacity: 1;
+	}
+	40% {
+	transform: translateY(-24px);
+	animation-timing-function: ease-in;
+	}
+	65% {
+	transform: translateY(-12px);
+	animation-timing-function: ease-in;
+	}
+	82% {
+	transform: translateY(-6px);
+	animation-timing-function: ease-in;
+	}
+	93% {
+	transform: translateY(-4px);
+	animation-timing-function: ease-in;
+	}
+	25%,
+	55%,
+	75%,
+	87% {
+	transform: translateY(0px);
+	animation-timing-function: ease-out;
+	}
+	100% {
+	transform: translateY(0px);
+	animation-timing-function: ease-out;
+	opacity: 1;
+	}
+}
+
+
+/* Animation lightSpeed
+   ========================================================================== */
+@keyframes lightSpeed {
+	from {
+		transform: translate3d(500%, 0, 0) skewX(-30deg);
+		opacity: 0;
+	  }
+	
+	  60% {
+		transform: skewX(20deg);
+		opacity: 1;
+	  }
+	
+	  80% {
+		transform: skewX(-20deg);
+	  }
+	
+	  to {
+		transform: translate3d(0, 0, 0);
+	  }
+}
+
+.lightSpeed {
+	opacity: 1;
+	animation: lightSpeed .9s ease-out;
+}
+
+
+/* Animation de l'étirement du mot
+   ========================================================================== */
+
+@keyframes wobbleMot {
+	from {
+		opacity: 0;
+		transform: translate3d(0, 0, 0);
+	  }
+	  15% {
+		opacity: 1;
+		transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+	  }
+	  30% {
+		transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+	  }
+	  45% {
+		transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+	  }
+	  60% {
+		transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+	  }
+	  75% {
+		transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+	  }
+	  to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	  }
+}
+
+.wobbleMot {
+	animation: wobbleMot 1.5s 250ms cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}
+
+/* Animation du scale bottom */
+@keyframes apparitionScale {
+	0% {
+		transform: scale(0);
+		transform-origin: 50% 100%;
+		opacity: 1;
+	}
+	55% {
+		transform: scale(1);
+		transform-origin: 50% 100%;
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+		transform-origin: 50% 100%;
+		opacity: 1;
+	}
+}
+
+.apparitionScale {
+	animation: apparitionScale 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}
+
+@keyframes attentionClic {
+	from {
+		opacity: 1;
+		transform: scale(1);
+		transform-origin: center center;
+		animation-timing-function: ease-out;
+	  }
+	  10% {
+		transform: scale(0.91);
+		animation-timing-function: ease-in;
+	  }
+	  17% {
+		transform: scale(0.98);
+		animation-timing-function: ease-out;
+	  }
+	  33% {
+		transform: scale(0.87);
+		animation-timing-function: ease-in;
+	  }
+	  45% {
+		opacity: 1;
+		transform: scale(1);
+		animation-timing-function: ease-out;
+	  }
+	  100% {
+		  opacity: 1;
+	  }
+}
+
+.question h1,
+.pulseTexte {
+	animation: pulseTexte 5s ease infinite alternate;
+}
+
+/* ANIMATION QUESTIONS PULSE */
+@keyframes pulseTexte {
+	0%, 100% {
+		text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+	}
+	25%, 75% {
+		text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+	}
+	50% {
+		text-shadow: 0 0 3px rgba(255, 255, 255, 0.75);
+	}
+}
+
+/* ANIMATION ÉTOILES PULSE */
+@keyframes pulseEtoiles {
+	0%, 100% {
+		text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+	}
+	25%, 75% {
+		text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+	}
+	50% {
+		text-shadow: 0 0 3px rgba(255, 255, 255, 0.75);
+	}
+}
+
+.lesEtoiles {
+	position: absolute;
+	background: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+	border-radius: 50%;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+	overflow: hidden;
+	width: .2vh;
+	height: .2vh;
+	opacity: 0;
+	animation: pulseEtoiles 5s ease infinite alternate;
+}
+
+
+@keyframes changerOpacite {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+
